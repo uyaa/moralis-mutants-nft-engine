@@ -80,6 +80,7 @@ const addLayer = (_id, _position, _size) => {
     id: _id,
     position: _position,
     size: _size,
+    location :_id,
     elements,
     elementIdsForRarity,
   };

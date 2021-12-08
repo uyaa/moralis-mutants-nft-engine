@@ -357,7 +357,40 @@ const startCreating = async () => {
         elementArray.forEach((element) => {
           drawElement(element);
           attributesList.push(getAttributeForElement(element));
+          if( element.layer.location == "Background" ){
+            var imageData = ctx.getImageData(0, 0, width, height);
+            var dataArr = imageData.data;
+            
+            var randomNumber = Math.floor(Math.random() * 255)
+
+            function getRandomColor(colorCode){
+              return (colorCode + randomNumber) % 255
+            }
+
+            for(var i = 0; i < dataArr.length; i += 4)
+            {
+                var r = dataArr[i]; // Red color lies between 0 and 255
+                var g = dataArr[i + 1]; // Green color lies between 0 and 255
+                var b = dataArr[i + 2]; // Blue color lies between 0 and 255
+                var a = dataArr[i + 3]; // Transparency lies between 0 and 255
+                
+                
+                
+                var invertedRed = getRandomColor(255 - r);
+                var invertedGreen = getRandomColor(255 - g);
+                var invertedBlue = getRandomColor(255 - b);
+                
+                
+                
+                dataArr[i] = invertedRed;
+                dataArr[i + 1] = invertedGreen;
+                dataArr[i + 2] = invertedBlue;
+            }
+            
+            ctx.putImageData(imageData, 0, 0);
+          }
         });
+
         // add an image signature as the edition count to the top left of the image
         signImage(`#${editionCount}`);
         // write the image to the output directory
