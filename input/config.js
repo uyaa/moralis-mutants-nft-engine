@@ -147,14 +147,13 @@ let rarityWeights = [
 // the id would be the name of the folder in your input directory, e.g. 'ball' for ./input/ball
 const layers = [
   addLayer("Background", { x: 0, y: 0 }, { width: width, height: height }),
-  addLayer("Base Torso"),
-  addLayer("Base Head"),
-  addLayer("Torso"),
-  addLayer("Arms"),
-  addLayer("Mouths"),
+  addLayer("Face_color"),
+  addLayer("Shadow"),
+  addLayer("Outline"),
+  addLayer("extras"),
   addLayer("Eyes"),
-  addLayer("Accessories"),
-  addLayer("Noses"),
+  addLayer("Mond"),
+  addLayer("nuezen"),
 ];
 
 // provide any specific percentages that are required for a given layer and rarity level
