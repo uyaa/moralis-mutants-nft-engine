@@ -105,3 +105,5 @@ dist
 
 # Misc
 .DS_Store
+
+output/
